@@ -12,10 +12,11 @@
 }
 
 :root {
-  /* Brand colors */
-  --brand-purple: #7928ca;
-  --brand-pink: #ff0080;
-  --brand-gradient: linear-gradient(135deg, #7928ca, #ff0080);
+  /* Brand colors - Cyber Blue */
+  --brand-cyan: #00d4ff;
+  --brand-blue: #0055ff;
+  --brand-electric: #0088ff;
+  --brand-gradient: linear-gradient(135deg, #0055ff, #00d4ff);
 
   /* Claude, OpenAI, DeepSeek provider colors */
   --claude-orange: #d97706;
@@ -30,24 +31,24 @@
   --bg-card-hover: #22223a;
   --bg-input: #0e0e15;
   --bg-tag: #1e1e30;
-  --bg-tag-active: #2a1a3a;
+  --bg-tag-active: #0a1a3a;
 
   --text-primary: #e8e8f0;
   --text-secondary: #9a9ab0;
   --text-muted: #6a6a80;
-  --text-accent: #a855f7;
+  --text-accent: #00b4ff;
 
   --border-color: #2a2a3e;
-  --border-focus: #a855f7;
+  --border-focus: #00b4ff;
 
-  --accent: #a855f7;
-  --accent-hover: #9333ea;
+  --accent: #00b4ff;
+  --accent-hover: #0099dd;
   --danger: #ef4444;
 
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
   --shadow-lg: 0 8px 32px rgba(0,0,0,0.6);
-  --shadow-glow: 0 0 20px rgba(168, 85, 247, 0.15);
+  --shadow-glow: 0 0 20px rgba(0, 180, 255, 0.15);
 
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -70,23 +71,23 @@
   --bg-card-hover: #f0f0f8;
   --bg-input: #ffffff;
   --bg-tag: #e8e8f0;
-  --bg-tag-active: #ddc8f0;
+  --bg-tag-active: #cce0ff;
 
   --text-primary: #1a1a2e;
   --text-secondary: #5a5a70;
   --text-muted: #8a8aa0;
-  --text-accent: #7928ca;
+  --text-accent: #0055cc;
 
   --border-color: #d0d0e0;
-  --border-focus: #7928ca;
+  --border-focus: #0055cc;
 
-  --accent: #7928ca;
-  --accent-hover: #6b21a8;
+  --accent: #0055cc;
+  --accent-hover: #0044aa;
 
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
   --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
-  --shadow-glow: 0 0 20px rgba(121, 40, 202, 0.1);
+  --shadow-glow: 0 0 20px rgba(0, 85, 204, 0.1);
 }
 
 html, body {
@@ -135,7 +136,7 @@ html, body {
 .logo-icon svg {
   width: 32px;
   height: 32px;
-  filter: drop-shadow(0 0 8px rgba(121, 40, 202, 0.4));
+  filter: drop-shadow(0 0 8px rgba(0, 180, 255, 0.4));
 }
 
 .logo-text {
@@ -178,7 +179,7 @@ html, body {
 
 .conv-item.active {
   background: var(--bg-tag-active);
-  border: 1px solid rgba(168, 85, 247, 0.3);
+  border: 1px solid rgba(0, 180, 255, 0.3);
 }
 
 .conv-item-icon {
@@ -377,8 +378,8 @@ html, body {
 }
 
 .message.user .message-bubble {
-  background: linear-gradient(135deg, rgba(121, 40, 202, 0.3), rgba(255, 0, 128, 0.2));
-  border: 1px solid rgba(168, 85, 247, 0.2);
+  background: linear-gradient(135deg, rgba(0, 85, 204, 0.2), rgba(0, 180, 255, 0.15));
+  border: 1px solid rgba(0, 180, 255, 0.2);
   border-bottom-right-radius: 4px;
   color: var(--text-primary);
 }
@@ -890,7 +891,7 @@ hr {
 
 .theme-btn.active {
   border-color: var(--accent);
-  background: rgba(168, 85, 247, 0.1);
+  background: rgba(0, 180, 255, 0.1);
   color: var(--accent);
 }
 
