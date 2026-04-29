@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <title>ThaibanChat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Sidebar / Conversations List -->
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="15" fill="url(#logoGrad)" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M10 20V12l6 4-6 4z" fill="white" opacity="0.9"/>
+              <path d="M14 20V12l6 4-6 4z" fill="white" opacity="0.6"/>
+              <circle cx="22" cy="16" r="3" fill="#58a6ff" opacity="0.8"/>
+              <defs>
+                <linearGradient id="logoGrad" x1="4" y1="4" x2="28" y2="28">
+                  <stop stop-color="#7928ca"/>
+                  <stop offset="1" stop-color="#ff0080"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="logo-text">ThaibanChat</span>
+        </div>
+        <button id="newChatBtnSidebar" class="btn btn-icon" title="New Chat">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </div>
+      <div id="conversationsList" class="conversations-list">
+        <div class="empty-state-small">
+          <p>No conversations yet</p>
+        </div>
+      </div>
+      <div class="sidebar-footer">
+        <button id="settingsBtnSidebar" class="btn btn-sidebar-footer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Settings
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Chat Area -->
+    <main id="main" class="main">
+      <!-- Chat Header -->
+      <header id="chatHeader" class="chat-header">
+        <button id="menuToggle" class="btn btn-icon mobile-only" title="Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="chat-header-info">
+          <h2 id="chatTitle" class="chat-title">ThaibanChat</h2>
+          <span id="chatSubtitle" class="chat-subtitle">Select a conversation or start a new one</span>
+        </div>
+        <div class="chat-header-actions">
+          <button id="settingsBtn" class="btn btn-icon" title="Settings">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Messages Area -->
+      <div id="messagesContainer" class="messages-container">
+        <div class="empty-state" id="emptyState">
+          <div class="empty-state-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>Welcome to ThaibanChat</h3>
+          <p>Talk to multiple AI providers at once. Select one or more providers below, then send a message.</p>
+        </div>
+        <div id="messagesList" class="messages-list"></div>
+      </div>
+
+      <!-- Input Area -->
+      <div id="inputArea" class="input-area">
+        <!-- Provider Toggle Chips -->
+        <div id="providerBar" class="provider-bar"></div>
+
+        <!-- Pending Attachments -->
+        <div id="attachmentBar" class="attachment-bar"></div>
+
+        <!-- Input Row -->
+        <div class="input-row">
+          <button id="attachBtn" class="btn btn-icon input-btn" title="Attach file">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+          </button>
+          <textarea id="messageInput" class="message-input" placeholder="Type a message…" rows="1"></textarea>
+          <button id="sendBtn" class="btn btn-primary send-btn" disabled>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal-overlay hidden">
+      <div class="modal settings-modal">
+        <div class="modal-header">
+          <h2>Settings</h2>
+          <button id="settingsClose" class="btn btn-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+        </div>
+        <div class="settings-content">
+          <div class="settings-section">
+            <h3>Theme</h3>
+            <div class="theme-selector">
+              <button class="theme-btn" data-theme="dark">🌙 Dark</button>
+              <button class="theme-btn" data-theme="light">☀️ Light</button>
+              <button class="theme-btn" data-theme="system">💻 System</button>
+            </div>
+          </div>
+          <hr>
+          <div class="settings-section">
+            <h3>Anthropic Claude</h3>
+            <div class="provider-config" data-provider="claude">
+              <label>
+                <span>API Key</span>
+                <input type="password" class="api-key-input" placeholder="sk-ant-..." spellcheck="false">
+              </label>
+              <label>
+                <span>Model</span>
+                <select class="model-select"></select>
+              </label>
+              <label class="toggle-label">
+                <span>Enabled</span>
+                <input type="checkbox" class="provider-enabled" checked>
+                <span class="toggle-switch"></span>
+              </label>
+              <button class="btn btn-sm btn-outline save-provider-btn">Save</button>
+            </div>
+          </div>
+          <hr>
+          <div class="settings-section">
+            <h3>OpenAI</h3>
+            <div class="provider-config" data-provider="openai">
+              <label>
+                <span>API Key</span>
+                <input type="password" class="api-key-input" placeholder="sk-..." spellcheck="false">
+              </label>
+              <label>
+                <span>Model</span>
+                <select class="model-select"></select>
+              </label>
+              <label class="toggle-label">
+                <span>Enabled</span>
+                <input type="checkbox" class="provider-enabled" checked>
+                <span class="toggle-switch"></span>
+              </label>
+              <button class="btn btn-sm btn-outline save-provider-btn">Save</button>
+            </div>
+          </div>
+          <hr>
+          <div class="settings-section">
+            <h3>DeepSeek</h3>
+            <div class="provider-config" data-provider="deepseek">
+              <label>
+                <span>API Key</span>
+                <input type="password" class="api-key-input" placeholder="sk-..." spellcheck="false">
+              </label>
+              <label>
+                <span>Model</span>
+                <select class="model-select"></select>
+              </label>
+              <label class="toggle-label">
+                <span>Enabled</span>
+                <input type="checkbox" class="provider-enabled" checked>
+                <span class="toggle-switch"></span>
+              </label>
+              <button class="btn btn-sm btn-outline save-provider-btn">Save</button>
+            </div>
+          </div>
+          <hr>
+          <div class="settings-section">
+            <h3>Data</h3>
+            <button id="clearAllDataBtn" class="btn btn-sm btn-danger">Clear All Conversations</button>
+          </div>
+          <hr>
+          <div class="settings-section">
+            <p class="version-info">ThaibanChat v1.0.0</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="512" y2="512">
+      <stop offset="0%" stop-color="#1a0533"/>
+      <stop offset="100%" stop-color="#0d0d1a"/>
+    </linearGradient>
+    <linearGradient id="ringGrad" x1="0" y1="0" x2="512" y2="512">
+      <stop offset="0%" stop-color="#7928ca"/>
+      <stop offset="100%" stop-color="#ff0080"/>
+    </linearGradient>
+    <linearGradient id="playGrad" x1="0" y1="0" x2="128" y2="128">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e0d0ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="248" fill="url(#bgGrad)" stroke="url(#ringGrad)" stroke-width="8"/>
+
+  <!-- Outer ring glow -->
+  <circle cx="256" cy="256" r="248" fill="none" stroke="#7928ca" stroke-width="2" opacity="0.3"/>
+
+  <!-- Stylized chat bubble -->
+  <g transform="translate(128, 140)">
+    <!-- Bubble shape -->
+    <path d="M0 40 C0 18 18 0 40 0 L216 0 C238 0 256 18 256 40 L256 140 C256 162 238 180 216 180 L60 180 L20 220 L20 180 L40 180 C18 180 0 162 0 140 Z"
+          fill="url(#ringGrad)" opacity="0.9"/>
+
+    <!-- Three dots (play animation) -->
+    <circle cx="80" cy="90" r="14" fill="url(#playGrad)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="132" cy="90" r="14" fill="url(#playGrad)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" begin="0.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="184" cy="90" r="14" fill="url(#playGrad)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" begin="0.4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Small decorative sparkles -->
+  <circle cx="80" cy="80" r="4" fill="#a855f7" opacity="0.6"/>
+  <circle cx="440" cy="120" r="3" fill="#ff0080" opacity="0.4"/>
+  <circle cx="400" cy="420" r="5" fill="#7928ca" opacity="0.5"/>
+  <circle cx="100" cy="400" r="3" fill="#a855f7" opacity="0.3"/>
+</svg>
